@@ -9,7 +9,6 @@ namespace VehicleInventoryDomain
         void Remove(Vehicle vehicle);
         List<Vehicle> List();
         List<Vehicle> List(SortOrder sortOrder);
-
         string ListAsString(SortOrder sortOrder);
     }
 

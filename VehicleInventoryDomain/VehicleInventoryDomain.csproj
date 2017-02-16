@@ -48,7 +48,13 @@
     <Compile Include="OilChangeRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleVolkswagen.cs" />
+    <Compile Include="VehicleTesla.cs" />
+    <Compile Include="VehicleSubaru.cs" />
+    <Compile Include="VehicleBmw.cs" />
+    <Compile Include="VehicleFactory.cs" />
     <Compile Include="VehicleInventory.cs" />
+    <Compile Include="VehicleLookupQueries.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

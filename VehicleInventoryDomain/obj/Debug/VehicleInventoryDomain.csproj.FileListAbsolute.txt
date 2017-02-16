@@ -1,7 +1,7 @@
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\bin\Debug\VehicleInventoryDomain.dll
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\bin\Debug\VehicleInventoryDomain.pdb
-c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\obj\Debug\VehicleInventoryDomain.csprojResolveAssemblyReference.cache
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\obj\Debug\VehicleInventoryDomain.dll
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\obj\Debug\VehicleInventoryDomain.pdb
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\bin\Debug\Newtonsoft.Json.dll
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\paul\Documents\Visual Studio 2015\Projects\VehicleInventoryApp\VehicleInventoryDomain\obj\Debug\VehicleInventoryDomain.csprojResolveAssemblyReference.cache

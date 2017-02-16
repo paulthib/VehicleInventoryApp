@@ -22,16 +22,7 @@ namespace VehicleInventoryDomain
         public DateTime LastOilChangeDate { get; set; }
         public int LastOilChangeMiles { get; set; }
 
-        public string Disclaimer {
-            get
-            {
-                // TODO - this should be in a database or lookup table
-                if (String.Compare(Make, "bmw", true) == 0)
-                    return @"© Copyright BMW AG, Munich, Germany";
-                else 
-                return null;
-            }
-       }
+        public virtual string Disclaimer { get; private set; }
 
         public Vehicle (string vinNumber, string make, string model, int year, 
                         string color, int weight, decimal price,
@@ -48,6 +39,20 @@ namespace VehicleInventoryDomain
             Manufacturer = manufacturer;
         }
 
+        protected virtual int OilChangeRecommendedMiles { get { return 3000; } }
+        protected virtual int OilChangeRecommendedDays { get { return 90; } }
+
+        //oil change - option - build rules into the class, but this requires code change if the rule changes
+        public virtual bool IsDueForOilChange()
+        {
+            // zero means no rule for this attribute
+            if (OilChangeRecommendedDays == 0 && OilChangeRecommendedMiles == 0)
+                return false;
+            var daysSinceLastChange = DateTime.Now.Subtract(LastOilChangeDate).Days;
+            if (daysSinceLastChange >= OilChangeRecommendedDays) return true;
+            var milesSinceLastChange = Miles - LastOilChangeMiles;
+            return (milesSinceLastChange >= OilChangeRecommendedMiles);
+        }
     }
 
 

@@ -7,3 +7,5 @@ c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleI
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryTests\obj\Debug\VehicleInventoryTests.csprojResolveAssemblyReference.cache
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryTests\obj\Debug\VehicleInventoryTests.dll
 c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryTests\obj\Debug\VehicleInventoryTests.pdb
+c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryTests\bin\Debug\Newtonsoft.Json.dll
+c:\users\paul\documents\visual studio 2015\Projects\VehicleInventoryApp\VehicleInventoryTests\bin\Debug\Newtonsoft.Json.xml

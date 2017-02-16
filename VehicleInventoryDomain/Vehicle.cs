@@ -18,6 +18,21 @@ namespace VehicleInventoryDomain
         public int Miles { get;  set; }
         public Manufacturer Manufacturer { get; private set; }
 
+        //Oil Change
+        public DateTime LastOilChangeDate { get; set; }
+        public int LastOilChangeMiles { get; set; }
+
+        public string Disclaimer {
+            get
+            {
+                // TODO - this should be in a database or lookup table
+                if (String.Compare(Make, "bmw", true) == 0)
+                    return @"© Copyright BMW AG, Munich, Germany";
+                else 
+                return null;
+            }
+       }
+
         public Vehicle (string vinNumber, string make, string model, int year, 
                         string color, int weight, decimal price,
                         int miles, Manufacturer manufacturer)
@@ -38,7 +53,7 @@ namespace VehicleInventoryDomain
 
     public class Manufacturer
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
         public string Address { get; private set; }
         public string Phone { get; private set; }
 

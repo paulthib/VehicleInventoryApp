@@ -3,7 +3,7 @@
     public static class VehicleFactory
     {
         public static Vehicle CreateVehicle(string vinNumber, string make, string model, int year,
-                        string color, int weight, decimal price, int miles, Manufacturer manufacturer)
+                        string color, int weight, decimal price, int miles)
         {
             Vehicle vehicle = null;
 
@@ -11,23 +11,23 @@
             {
                 case "bmw":
                     vehicle = new VehicleBmw(vinNumber, make, model, year,
-                         color, weight, price, miles, manufacturer);
+                         color, weight, price, miles);
                     break;
                 case "subaru":
                     vehicle = new VehicleSubaru(vinNumber, make, model, year,
-                         color, weight, price, miles, manufacturer);
+                         color, weight, price, miles);
                     break;
                 case "tesla":
                     vehicle = new VehicleTesla(vinNumber, make, model, year,
-                         color, weight, price, miles, manufacturer);
+                         color, weight, price, miles);
                     break;
                 case "volkswagen":
                     vehicle = new VehicleVolkswagen(vinNumber, make, model, year,
-                         color, weight, price, miles, manufacturer);
+                         color, weight, price, miles);
                     break;
                 default:
                     vehicle = new Vehicle(vinNumber, make, model, year,
-                         color, weight, price, miles, manufacturer);
+                         color, weight, price, miles);
                     break;
             }
             return vehicle;

@@ -16,17 +16,22 @@ namespace VehicleInventoryDomain
         public int Weight { get; private set; }
         public decimal Price { get; private set; }
         public int Miles { get;  set; }
-        public Manufacturer Manufacturer { get; private set; }
 
         //Oil Change
         public DateTime LastOilChangeDate { get; set; }
         public int LastOilChangeMiles { get; set; }
 
+        public virtual Manufacturer Mfg
+        {
+            get { return new Manufacturer("not supplied", "default", "default"); }
+        }
         public virtual string Disclaimer { get; private set; }
+        protected virtual int OilChangeRecommendedMiles { get { return 3000; } }
+        protected virtual int OilChangeRecommendedDays { get { return 90; } }
 
         public Vehicle (string vinNumber, string make, string model, int year, 
                         string color, int weight, decimal price,
-                        int miles, Manufacturer manufacturer)
+                        int miles)
         {
             VinNumber = vinNumber;
             Make = make;
@@ -36,11 +41,8 @@ namespace VehicleInventoryDomain
             Weight = weight;
             Price = price;
             Miles = miles;
-            Manufacturer = manufacturer;
         }
 
-        protected virtual int OilChangeRecommendedMiles { get { return 3000; } }
-        protected virtual int OilChangeRecommendedDays { get { return 90; } }
 
         //oil change - option - build rules into the class, but this requires code change if the rule changes
         public virtual bool IsDueForOilChange()

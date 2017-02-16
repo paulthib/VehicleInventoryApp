@@ -8,9 +8,13 @@ namespace VehicleInventoryDomain
 {
     public class VehicleBmw : Vehicle
     {
-        public VehicleBmw(string vinNumber, string make, string model, int year, string color, int weight, decimal price, int miles, Manufacturer manufacturer) 
-            : base(vinNumber, make, model, year, color, weight, price, miles, manufacturer)
+        public VehicleBmw(string vinNumber, string make, string model, int year, string color, int weight, decimal price, int miles) 
+            : base(vinNumber, make, model, year, color, weight, price, miles)
         {
+        }
+        public override Manufacturer Mfg
+        {
+            get { return new Manufacturer("Bmw", "Munich", "phone"); }
         }
 
         public override string Disclaimer {

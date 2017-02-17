@@ -2,26 +2,26 @@
 {
     public static class VehicleFactory
     {
-        public static Vehicle CreateVehicle(string vinNumber, string make, string model, int year,
+        public static Vehicle CreateVehicle(string vinNumber, VehicleMake make, string model, int year,
                         string color, int weight, decimal price, int miles)
         {
             Vehicle vehicle = null;
 
-            switch (make.ToLower())
+            switch (make)
             {
-                case "bmw":
+                case VehicleMake.BMW:
                     vehicle = new VehicleBmw(vinNumber, make, model, year,
                          color, weight, price, miles);
                     break;
-                case "subaru":
+                case VehicleMake.Subaru:
                     vehicle = new VehicleSubaru(vinNumber, make, model, year,
                          color, weight, price, miles);
                     break;
-                case "tesla":
+                case VehicleMake.Tesla:
                     vehicle = new VehicleTesla(vinNumber, make, model, year,
                          color, weight, price, miles);
                     break;
-                case "volkswagen":
+                case VehicleMake.Volkswagen:
                     vehicle = new VehicleVolkswagen(vinNumber, make, model, year,
                          color, weight, price, miles);
                     break;

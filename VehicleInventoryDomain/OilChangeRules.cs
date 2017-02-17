@@ -11,12 +11,12 @@ namespace VehicleInventoryDomain
     {
         // Normally, this would be coded in a database or some kind of updateable lookup table
         // requires no code changes if the rules change
-        private static IDictionary<string, OilChangeLimitRule> OilChangeDictionary
-            = new Dictionary<string, OilChangeLimitRule>(StringComparer.OrdinalIgnoreCase)
+        private static IDictionary<VehicleMake, OilChangeLimitRule> OilChangeDictionary
+            = new Dictionary<VehicleMake, OilChangeLimitRule>()
                 {
-                    {"Subaru", new OilChangeLimitRule() { Miles = 7000, Days = 180  } },
-                    {"Volkswagen", new OilChangeLimitRule() { Miles = 8000, Days = 210  } },
-                    {"Tesla", new OilChangeLimitRule() { Miles = 0, Days = 0  } }
+                    {VehicleMake.Subaru, new OilChangeLimitRule() { Miles = 7000, Days = 180  } },
+                    {VehicleMake.Volkswagen, new OilChangeLimitRule() { Miles = 8000, Days = 210  } },
+                    {VehicleMake.Tesla, new OilChangeLimitRule() { Miles = 0, Days = 0  } }
                 };
 
         private static OilChangeLimitRule defaultRule =  new OilChangeLimitRule() { Miles = 3000, Days = 90  };

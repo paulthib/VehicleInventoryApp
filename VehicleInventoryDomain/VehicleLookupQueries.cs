@@ -14,11 +14,11 @@ namespace VehicleInventoryDomain
         {
             return source.Where(v => v.Year == year).ToList();
         }
-        public static List<Vehicle> FindByMake(this IVehicleInventory source, string make)
+        public static List<Vehicle> FindByMake(this IVehicleInventory source, VehicleMake make)
         {
             return source.List().FindByMake(make);
         }
-        public static List<Vehicle> FindByMake(this IEnumerable<Vehicle> source, string make)
+        public static List<Vehicle> FindByMake(this IEnumerable<Vehicle> source, VehicleMake make)
         {
             return source.Where(v => v.Make == make).ToList();
         }

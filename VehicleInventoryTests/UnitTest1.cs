@@ -8,13 +8,13 @@ namespace VehicleInventoryTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod_BasicFeatures()
         {
             IVehicleInventory inventory = new VehicleInventory();
-            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", "Tesla", "model", 2017, "yellow", 1500, 2500, 100);
+            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", VehicleMake.Tesla, "model", 2017, "yellow", 1500, 2500, 100);
             //var temp = vehicle.Mfg;
             inventory.Add(vehicle);
-            vehicle = VehicleFactory.CreateVehicle("vinnumber1", "BMW", "model", 2016, "red", 2500, 4000, 100);
+            vehicle = VehicleFactory.CreateVehicle("vinnumber1", VehicleMake.BMW, "model", 2016, "red", 2500, 4000, 100);
             inventory.Add(vehicle);
             var v1 = inventory.List(SortOrder.Vin);
 
@@ -30,15 +30,15 @@ namespace VehicleInventoryTests
             var v2 = inventory.FindByYear(2017);
             Assert.AreEqual(1, v2.Count);
 
-            var v3 = inventory.List(SortOrder.Vin).FindByMake("BMW");
+            var v3 = inventory.List(SortOrder.Vin).FindByMake(VehicleMake.BMW);
             Assert.AreEqual(1, v3.Count);
             Assert.IsTrue(v3[0].Disclaimer.Contains("Copyright BMW AG, Munich, Germany"));
 
             v3.AddToMileage(99);
-            var v3_1 = inventory.List().FindByMake("BMW");
+            var v3_1 = inventory.List().FindByMake(VehicleMake.BMW);
             Assert.AreEqual(199, v3_1[0].Miles);
 
-            var v4 = inventory.List().FindByMake("make_none");
+            var v4 = inventory.List().FindByMake(VehicleMake.Ford);
             Assert.AreEqual(0, v4.Count);
 
             var stringList = inventory.ListAsString(SortOrder.Vin);
@@ -57,7 +57,7 @@ namespace VehicleInventoryTests
             IVehicleInventory inventory = new VehicleInventory();
             var mfg = new Manufacturer("Subaru", "100 main", "800-999-9999");
 
-            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", "Subaru", "Impreza", 2017, "yellow", 1500, 2500, 10000);
+            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", VehicleMake.Subaru, "Impreza", 2017, "yellow", 1500, 2500, 10000);
             vehicle.LastOilChangeDate = new DateTime(2016, 10, 1);
             vehicle.LastOilChangeMiles = 1000;
             Assert.IsTrue(vehicle.IsDueForOilChange());
@@ -67,15 +67,15 @@ namespace VehicleInventoryTests
             Assert.IsFalse(vehicle.IsDueForOilChange());
 
 
-            vehicle = VehicleFactory.CreateVehicle("vinnumberVW", "volkswagen", "Jetta", 2017, "yellow", 1500, 2500, 10000);
+            vehicle = VehicleFactory.CreateVehicle("vinnumberVW", VehicleMake.Volkswagen, "Jetta", 2017, "yellow", 1500, 2500, 10000);
             vehicle.LastOilChangeDate = new DateTime(2016, 10, 1);
             vehicle.LastOilChangeMiles = 2100;
             Assert.IsFalse(vehicle.IsDueForOilChange());
 
-            vehicle = VehicleFactory.CreateVehicle("vinnumbertesla", "tesla", "Models", 2017, "yellow", 1500, 2500, 10000);
+            vehicle = VehicleFactory.CreateVehicle("vinnumbertesla", VehicleMake.Tesla, "Models", 2017, "yellow", 1500, 2500, 10000);
             Assert.IsFalse(vehicle.IsDueForOilChange());
 
-            vehicle = VehicleFactory.CreateVehicle("vinnumbertoyota", "toyota", "4runner", 2017, "yellow", 1500, 2500, 10000);
+            vehicle = VehicleFactory.CreateVehicle("vinnumbertoyota", VehicleMake.Toyota, "4runner", 2017, "yellow", 1500, 2500, 10000);
             Assert.IsTrue(vehicle.IsDueForOilChange());
             vehicle.LastOilChangeDate = new DateTime(2017, 1, 1);
             vehicle.LastOilChangeMiles = 11000;
@@ -93,11 +93,11 @@ namespace VehicleInventoryTests
             IVehicleInventory inventory = new VehicleInventory();
             var mfg = new Manufacturer("Toyota", "100 main", "800-999-9999");
 
-            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", "make", "model", 2017, "yellow", 1500, 10000, 10000);
+            var vehicle = VehicleFactory.CreateVehicle("vinnumber3", VehicleMake.Ford, "model", 2017, "yellow", 1500, 10000, 10000);
             inventory.Add(vehicle);
-            vehicle = VehicleFactory.CreateVehicle("vinnumber1", "BMW", "model", 2016, "red", 2500, 60000, 60000);
+            vehicle = VehicleFactory.CreateVehicle("vinnumber1", VehicleMake.BMW, "model", 2016, "red", 2500, 60000, 60000);
             inventory.Add(vehicle);
-            vehicle = VehicleFactory.CreateVehicle("vinnumber1", "toyota", "model", 2016, "red", 2500, 20000, 20000);
+            vehicle = VehicleFactory.CreateVehicle("vinnumber1", VehicleMake.Toyota, "model", 2016, "red", 2500, 20000, 20000);
             inventory.Add(vehicle);
 
             var vehicleList = inventory.List();

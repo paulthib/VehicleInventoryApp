@@ -9,7 +9,7 @@ namespace VehicleInventoryDomain
     public class Vehicle
     {
         public string VinNumber { get; set; }
-        public string Make { get; private set; }
+        public VehicleMake Make { get; private set; }
         public string Model { get; private set; }
         public int Year { get; private set; }
         public string Color { get; private set; }
@@ -29,7 +29,7 @@ namespace VehicleInventoryDomain
         protected virtual int OilChangeRecommendedMiles { get { return 3000; } }
         protected virtual int OilChangeRecommendedDays { get { return 90; } }
 
-        public Vehicle (string vinNumber, string make, string model, int year, 
+        public Vehicle (string vinNumber, VehicleMake make, string model, int year, 
                         string color, int weight, decimal price,
                         int miles)
         {

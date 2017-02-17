@@ -8,7 +8,7 @@ namespace VehicleInventoryDomain
 {
     public class VehicleBmw : Vehicle
     {
-        public VehicleBmw(string vinNumber, string make, string model, int year, string color, int weight, decimal price, int miles) 
+        public VehicleBmw(string vinNumber, VehicleMake make, string model, int year, string color, int weight, decimal price, int miles) 
             : base(vinNumber, make, model, year, color, weight, price, miles)
         {
         }

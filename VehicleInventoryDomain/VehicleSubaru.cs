@@ -2,7 +2,7 @@
 {
     public class VehicleSubaru : Vehicle
     {
-        public VehicleSubaru(string vinNumber, string make, string model, int year, string color, int weight, decimal price, int miles) 
+        public VehicleSubaru(string vinNumber, VehicleMake make, string model, int year, string color, int weight, decimal price, int miles) 
             : base(vinNumber, make, model, year, color, weight, price, miles)
         {
         }

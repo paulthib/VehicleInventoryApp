@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VehicleInventoryDomain
 {
-    // one option - keep all oil change rules in one place - preferable a database of some updateable lookup table
+    // another option - to keep all oil change rules in one place - preferably a database of some updateable lookup table
     public static class OilChangeRules
     {
         // Normally, this would be coded in a database or some kind of updateable lookup table
